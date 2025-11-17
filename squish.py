@@ -10,5 +10,19 @@ print("y = ", y)
 print("x = ", x)
 
 params, params_cov = scipy.optimize.curve_fit(linear, x, y)
-slope = params[0]
-intercept = params[1]
+slope = round(params[0],2)
+intercept = round(params[1],2)
+###Exercise 1
+
+print_equation(slope, intercept, "cm" , "g")
+# Equation of the line: y = -0.01cm/g+6.83cm
+
+### Exercise 2
+
+plt.figure()
+plt.scatter(x, y, label='Data')
+plt.plot(x, linear(slope, x, intercept),label='Linear Fit') 
+plt.legend(loc='best')
+plt.ylabel("Centimeters") 
+plt.xlabel("Grams") 
+plt.show()
